@@ -164,6 +164,42 @@ static SXNetworkManager * networkManager = nil;
     return task;
 }
 
+/**
+ *  下载文件
+ *
+ *  @param apiPath 方法链接
+ *  @param success 下载成功
+ *  @param failure 下载失败
+ *  @param progress 下载进度
+ */
+
+-(void)downloadWithApiPath:(nonnull NSString *)apiPath
+             success:(nullable HttpSuccessBlock)success
+             failure:(nullable HttpFailureBlock)failure
+            progress:(nullable HttpDownloadProgressBlock)progress{
+    // 请求的地址
+    NSString * requestPath = [SERVERURL stringByAppendingPathComponent:apiPath];
+    
+    //下载
+    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestPath]];
+    
+    NSURLSessionDownloadTask * downloadTask = [self.sessionManager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        progress(downloadProgress.fractionCompleted);
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        //  获取沙盒cache路径
+        NSURL * documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        if (error) {
+            failure(error);
+        } else {
+            success(filePath.path);
+        }
+    }];
+    
+    [downloadTask resume];
+}
+
 #pragma mark 报错信息
 /**
  *  处理报错信息

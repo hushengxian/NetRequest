@@ -17,7 +17,10 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
     DELETE
 };
 
-typedef void(^completeBlock)( NSDictionary *_Nullable object,NSError * _Nullable error); 
+typedef void(^completeBlock)( NSDictionary *_Nullable object,NSError * _Nullable error);
+typedef void(^HttpDownloadProgressBlock)(CGFloat progress);
+typedef void(^HttpSuccessBlock)(id _Nullable json);
+typedef void(^HttpFailureBlock)(NSError * _Nullable error);
 
 @interface SXNetworkManager : NSObject
 
@@ -61,5 +64,20 @@ typedef void(^completeBlock)( NSDictionary *_Nullable object,NSError * _Nullable
                                                     parameters:(nullable id)parameters
                                                     imageArray:(NSArray *_Nullable)imageArray
                                                  completeBlock:(nullable completeBlock)completeBlock;
+
+#pragma mark 下载文件
+/**
+ *  下载文件
+ *
+ *  @param apiPath 方法链接
+ *  @param success 下载成功
+ *  @param failure 下载失败
+ *  @param progress 下载进度
+ */
+
+-(void)downloadWithApiPath:(nonnull NSString *)apiPath
+                   success:(nullable HttpSuccessBlock)success
+                   failure:(nullable HttpFailureBlock)failure
+                  progress:(nullable HttpDownloadProgressBlock)progress;
 
 @end
