@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CB9A26B94ED0D91067A83B4 /* libPods-NetRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1B486CF114509626C8DF50 /* libPods-NetRequest.a */; };
+		FE6CB771208EB05600AB90AC /* SXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6CB770208EB05600AB90AC /* SXNetworkManager.m */; };
 		FECB2D1B207B6467004D0128 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FECB2D1A207B6467004D0128 /* AppDelegate.m */; };
 		FECB2D1E207B6467004D0128 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECB2D1D207B6467004D0128 /* ViewController.m */; };
 		FECB2D21207B6467004D0128 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECB2D1F207B6467004D0128 /* Main.storyboard */; };
@@ -35,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A1B486CF114509626C8DF50 /* libPods-NetRequest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetRequest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		542BEDCA595E852FCB22F3F1 /* Pods-NetRequest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetRequest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetRequest/Pods-NetRequest.debug.xcconfig"; sourceTree = "<group>"; };
+		5DD0A17588F150C9211715B2 /* Pods-NetRequest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetRequest.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetRequest/Pods-NetRequest.release.xcconfig"; sourceTree = "<group>"; };
+		FE6CB76F208EB05600AB90AC /* SXNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXNetworkManager.h; sourceTree = "<group>"; };
+		FE6CB770208EB05600AB90AC /* SXNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXNetworkManager.m; sourceTree = "<group>"; };
 		FECB2D16207B6467004D0128 /* NetRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECB2D19207B6467004D0128 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FECB2D1A207B6467004D0128 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB9A26B94ED0D91067A83B4 /* libPods-NetRequest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +86,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3015082CC816181BFBDE64DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				542BEDCA595E852FCB22F3F1 /* Pods-NetRequest.debug.xcconfig */,
+				5DD0A17588F150C9211715B2 /* Pods-NetRequest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		67587F7B98D1F1C9EF7F0091 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A1B486CF114509626C8DF50 /* libPods-NetRequest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FECB2D0D207B6467004D0128 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +110,8 @@
 				FECB2D31207B6467004D0128 /* NetRequestTests */,
 				FECB2D3C207B6467004D0128 /* NetRequestUITests */,
 				FECB2D17207B6467004D0128 /* Products */,
+				3015082CC816181BFBDE64DA /* Pods */,
+				67587F7B98D1F1C9EF7F0091 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +137,8 @@
 				FECB2D24207B6467004D0128 /* LaunchScreen.storyboard */,
 				FECB2D27207B6467004D0128 /* Info.plist */,
 				FECB2D28207B6467004D0128 /* main.m */,
+				FE6CB76F208EB05600AB90AC /* SXNetworkManager.h */,
+				FE6CB770208EB05600AB90AC /* SXNetworkManager.m */,
 			);
 			path = NetRequest;
 			sourceTree = "<group>";
@@ -139,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FECB2D42207B6467004D0128 /* Build configuration list for PBXNativeTarget "NetRequest" */;
 			buildPhases = (
+				16C701E868C637F5E08CE901 /* [CP] Check Pods Manifest.lock */,
 				FECB2D12207B6467004D0128 /* Sources */,
 				FECB2D13207B6467004D0128 /* Frameworks */,
 				FECB2D14207B6467004D0128 /* Resources */,
+				6BB4662A1807EABAEBFFEA06 /* [CP] Embed Pods Frameworks */,
+				42C232279922B5B910E3B4BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,12 +292,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16C701E868C637F5E08CE901 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NetRequest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42C232279922B5B910E3B4BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetRequest/Pods-NetRequest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BB4662A1807EABAEBFFEA06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetRequest/Pods-NetRequest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FECB2D12207B6467004D0128 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FECB2D1E207B6467004D0128 /* ViewController.m in Sources */,
+				FE6CB771208EB05600AB90AC /* SXNetworkManager.m in Sources */,
 				FECB2D29207B6467004D0128 /* main.m in Sources */,
 				FECB2D1B207B6467004D0128 /* AppDelegate.m in Sources */,
 			);
@@ -428,6 +512,7 @@
 		};
 		FECB2D43207B6467004D0128 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 542BEDCA595E852FCB22F3F1 /* Pods-NetRequest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -441,6 +526,7 @@
 		};
 		FECB2D44207B6467004D0128 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DD0A17588F150C9211715B2 /* Pods-NetRequest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
