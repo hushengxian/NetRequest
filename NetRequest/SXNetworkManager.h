@@ -17,7 +17,8 @@ typedef NS_ENUM(NSUInteger, HTTPMethod) {
     DELETE
 };
 
-typedef void(^completeBlock)( NSDictionary *_Nullable object,NSError * _Nullable error);
+typedef void(^resultBlock)(NSDictionary * _Nullable dict, NSString * errorStr);
+typedef void(^completeBlock)( NSDictionary *_Nullable dict,NSError * _Nullable error);
 typedef void(^HttpDownloadProgressBlock)(CGFloat progress);
 typedef void(^HttpSuccessBlock)(id _Nullable json);
 typedef void(^HttpFailureBlock)(NSError * _Nullable error);
@@ -64,6 +65,21 @@ typedef void(^HttpFailureBlock)(NSError * _Nullable error);
                                                     parameters:(nullable id)parameters
                                                     imageArray:(NSArray *_Nullable)imageArray
                                                  completeBlock:(nullable completeBlock)completeBlock;
+
+/**
+ 再次封装将分为 status = 200 及其他
+ 
+ @param requestMethod 请求方式
+ @param apiPath       方法链接
+ @param parameters    参数
+ 
+ @return  resultBlock
+ */
+
++(nullable NSURLSessionDataTask *)sendRequestMethod:(HTTPMethod)requestMethod
+                                            apiPath:(nonnull NSString *)apiPath
+                                         parameters:(nullable id)parameters
+                                        resultBlock:(nullable resultBlock)resultBlock;
 
 #pragma mark 下载文件
 /**

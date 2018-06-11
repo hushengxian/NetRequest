@@ -17,6 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [SXNetworkManager sendRequestMethod:POST apiPath:@"api" parameters:@{} resultBlock:^(NSDictionary * _Nullable dict, NSString *errorStr) {
+        if (!errorStr) {
+            NSLog(@"\n");
+        }else {
+            NSLog(@"\n error = %@",errorStr);
+        }
+    }];
 }
 
 

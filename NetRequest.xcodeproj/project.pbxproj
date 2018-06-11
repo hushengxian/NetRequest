@@ -40,6 +40,7 @@
 		4A1B486CF114509626C8DF50 /* libPods-NetRequest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetRequest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		542BEDCA595E852FCB22F3F1 /* Pods-NetRequest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetRequest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetRequest/Pods-NetRequest.debug.xcconfig"; sourceTree = "<group>"; };
 		5DD0A17588F150C9211715B2 /* Pods-NetRequest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetRequest.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetRequest/Pods-NetRequest.release.xcconfig"; sourceTree = "<group>"; };
+		FE4576D220CEA12A0089E2DF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FE6CB76F208EB05600AB90AC /* SXNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SXNetworkManager.h; sourceTree = "<group>"; };
 		FE6CB770208EB05600AB90AC /* SXNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SXNetworkManager.m; sourceTree = "<group>"; };
 		FECB2D16207B6467004D0128 /* NetRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +107,7 @@
 		FECB2D0D207B6467004D0128 = {
 			isa = PBXGroup;
 			children = (
+				FE4576D220CEA12A0089E2DF /* PrefixHeader.pch */,
 				FECB2D18207B6467004D0128 /* NetRequest */,
 				FECB2D31207B6467004D0128 /* NetRequestTests */,
 				FECB2D3C207B6467004D0128 /* NetRequestUITests */,
@@ -516,6 +518,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/xiamenguangdianshuzigongcheng/Desktop/NetRequest/PrefixHeader.pch;
 				INFOPLIST_FILE = NetRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HSX.NetRequest;
@@ -530,6 +534,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/xiamenguangdianshuzigongcheng/Desktop/NetRequest/PrefixHeader.pch;
 				INFOPLIST_FILE = NetRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.HSX.NetRequest;

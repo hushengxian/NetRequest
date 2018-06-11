@@ -200,6 +200,34 @@ static SXNetworkManager * networkManager = nil;
     [downloadTask resume];
 }
 
+/**
+  网络请求 再次封装将分为 [dict[@"status"] integerValue] == 200 及 其他
+ 
+ @param requestMethod 请求方式
+ @param apiPath       方法链接
+ @param parameters    参数
+ 
+ @return  resultBlock
+ */
+
++(nullable NSURLSessionDataTask *)sendRequestMethod:(HTTPMethod)requestMethod
+                                            apiPath:(nonnull NSString *)apiPath
+                                         parameters:(nullable id)parameters
+                                      resultBlock:(nullable resultBlock)resultBlock {
+   return  [[SXNetworkManager defaultManager] sendRequestMethod:requestMethod apiPath:apiPath parameters:parameters completeBlock:^(NSDictionary * _Nullable dict, NSError * _Nullable error) {
+        if (!error) {
+            if ([dict[@"status"] integerValue] == 200) {
+                resultBlock(dict,nil);
+            } else {
+                resultBlock(dict,dict[@"message"]);
+            }
+        }else {
+            resultBlock(nil,[[self class] failHandleWithErrorResponse:error task:nil]);
+        }
+        
+    }];
+}
+
 #pragma mark 报错信息
 /**
  *  处理报错信息
@@ -209,7 +237,7 @@ static SXNetworkManager * networkManager = nil;
  *  @return description
  */
 
--(NSString *)failHandleWithErrorResponse:(NSError * _Nullable)error task:(NSURLSessionDataTask * _Nullable)task {
++(NSString *)failHandleWithErrorResponse:(NSError * _Nullable)error task:(NSURLSessionDataTask * _Nullable)task {
 //    __block NSString * message = nil;
     NSData * afNetworking_errorMsg = [error.userInfo objectForKey:AFNetworkingOperationFailingURLRequestErrorKey];
     return [[NSString alloc] initWithData:afNetworking_errorMsg encoding:NSUTF8StringEncoding];
